@@ -1,0 +1,14 @@
+{
+  "name": "yfsoft-pi",
+  "version": "1.0.0",
+  "description": "运行在 pi 3 上的项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^1.7.3"
+  }
+}

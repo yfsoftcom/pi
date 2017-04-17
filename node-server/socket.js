@@ -1,13 +1,23 @@
-var io = require('socket.io')(10000);
+const WebSocket = require('ws');
+ 
+const wss = new WebSocket.Server({ port: 10000 });
 
-io.on('connection', function (socket) {
-  socket.emit('hi', { message: 'hi there world' });
-  socket.on('sayHi', function (data) {
-    console.log(data);
-    io.emit('sayHi', data);
+// Broadcast to all. 
+wss.broadcast = function broadcast(data) {
+  wss.clients.forEach(function each(client) {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(data);
+    }
   });
+};
 
-  socket.on('disconnect', function () {
-    io.emit('user disconnected');
+wss.on('connection', function (ws) {
+  console.log('client connected');
+  ws.on('message', function (message) {
+    const data = JSON.parse(message);
+    console.log(data);
+    if(data.channel){
+      wss.broadcast(JSON.stringify(data))
+    }
   });
 });

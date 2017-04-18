@@ -16,7 +16,8 @@ wss.on('connection', function (ws) {
   ws.on('message', function (message) {
     const data = JSON.parse(message);
     console.log(data);
-    if(data.channel){
+    if(data.channel=='login'){
+      data.channel = 'online';
       wss.broadcast(JSON.stringify(data))
     }
   });

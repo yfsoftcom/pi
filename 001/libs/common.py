@@ -3,7 +3,7 @@
 #description: get local ip address  
   
 import os  
-import socket, fcntl, struct  
+import socket, struct  
   
 def get_ip():  
   #注意外围使用双引号而非单引号,并且假设默认是第一个网卡,特殊环境请适当修改代码  

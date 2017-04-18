@@ -10,7 +10,7 @@ from socketIO_client import SocketIO, BaseNamespace
 class Namespace(BaseNamespace):
 
   def on_connect(self):
-    self.emit('login',{ 'ip': '12.12.12.12', 'id': 1, 'channel': 'login'})
+    self.emit('login',{ 'ip': get_ip(), 'id': 1, 'channel': 'login'})
 
   def on_message(self, message):
     print('on_message', message)

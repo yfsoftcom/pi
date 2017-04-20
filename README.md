@@ -7,8 +7,8 @@ websocket连接服务端
 # Depdents
 
 - fpm
-- websocket lib (`pip install websocket-client`)
-
+- websocket lib 
+  - Install package ( `pip install -U socketIO-client` )
 
 # 树莓派设置开机启动python脚本
 #### 设置python脚本开机启动

@@ -4,13 +4,12 @@ import RPi.GPIO as GPIO
 import time
 
 # 针脚编号
-channels = [1]   
+channels = [18]   
 
-def init():  
+def init():
   GPIO.setmode(GPIO.BOARD)  
-  for x in channels:  
-    GPIO.setup(x, GPIO.OUT)  
-  pass 
+  for x in channels:
+    GPIO.setup(x, GPIO.OUT)
 
 def on(i):  
   GPIO.output(channels[i], GPIO.HIGH)  

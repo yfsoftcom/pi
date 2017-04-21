@@ -68,3 +68,14 @@ network={
 
 重启网卡
 `sudo /etc/init.d/networking restart`
+
+
+
+# 002
+
+安装 GPIO
+
+```bash
+sudo apt-get update  
+sudo apt-get install python-dev python-rpi.gpio  
+```

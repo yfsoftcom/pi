@@ -24,7 +24,7 @@ def off(i):
 #   pass  
 
 def test(): 
-  for i in xrange(512):  
+  for i in xrange(10):  
     # ctrl(i) 
     if i%2 == 0:
       on(0)

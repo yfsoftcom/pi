@@ -7,7 +7,8 @@ except:
 else:
     load_gpio = True
 
-channels = [ 4, 5, 6, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ] 
+# channels = [ 4, 5, 6, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ] 
+channels = [ 18 ] 
 
 def init():
     GPIO.setmode(GPIO.BOARD)  

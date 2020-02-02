@@ -30,7 +30,7 @@ def test():
       on(0)
     else:
       off(0)
-    time.sleep(0.2)
+    time.sleep(1)
 
 def clean():  
   GPIO.cleanup()

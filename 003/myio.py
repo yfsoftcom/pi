@@ -16,10 +16,10 @@ def init():
         GPIO.setup(x, GPIO.OUT)
 
 def on(i):  
-    GPIO.output(i, GPIO.HIGH)  
+    GPIO.output(int(i), GPIO.HIGH)  
 
 def off(i):  
-    GPIO.output(i, GPIO.LOW)  
+    GPIO.output(int(i), GPIO.LOW)  
 
 if load_gpio:
     init()

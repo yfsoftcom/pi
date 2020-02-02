@@ -12,10 +12,12 @@ def toggle(ionumber, value):
     if not load_gpio:
         return jsonify({'code': 0})
         
-    if value is 1:
+    if int(value) == 1:
         on(ionumber)
     else:
         off(ionumber)
+
+    return jsonify({'code': 0}) 
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000, host='0.0.0.0')

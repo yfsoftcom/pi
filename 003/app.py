@@ -20,4 +20,4 @@ def toggle(ionumber, value):
     return jsonify({'code': 0}) 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000, host=':::')
+    app.run(debug=True, port=8000)

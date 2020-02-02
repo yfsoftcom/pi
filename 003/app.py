@@ -8,10 +8,11 @@ def index():
 
 @app.route('/toggle/<ionumber>/<value>')
 def toggle(ionumber, value):
-    print(ionumber, value)
+    
     if not load_gpio:
         return jsonify({'code': 0})
         
+    print(ionumber, value)  
     if int(value) == 1:
         on(ionumber)
     else:

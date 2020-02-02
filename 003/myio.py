@@ -12,6 +12,7 @@ channels = [ 18 ]
 
 def init():
     GPIO.setmode(GPIO.BOARD)  
+    GPIO.setwarnings(False)
     for x in channels:
         GPIO.setup(x, GPIO.OUT)
 

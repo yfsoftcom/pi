@@ -11,11 +11,8 @@ def toggle(channel, value):
     
     if not load_gpio:
         return jsonify({'code': 0})
-
     if not is_setup(channel):
         return jsonify({ 'code': -1 })
-        
-    print(channel, value)  
     if int(value) == 1:
         on(channel)
     else:

@@ -23,9 +23,11 @@ def init():
         GPIO.setup(x, GPIO.OUT)
 
 def on(i):  
+    print('on:' i)
     GPIO.output(int(i), GPIO.HIGH)  
 
 def off(i):  
+    print('off:' i)
     GPIO.output(int(i), GPIO.LOW)  
 
 if load_gpio:

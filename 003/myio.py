@@ -14,7 +14,6 @@ def clean():
   GPIO.cleanup()
 
 def init():
-    clean()
     GPIO.setmode(GPIO.BOARD)  
     GPIO.setwarnings(False)
     for x in channels:

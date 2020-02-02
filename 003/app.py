@@ -1,4 +1,4 @@
-from myio import load_gpio, on, off
+from myio import load_gpio, on, off, is_setup
 from flask import Flask, render_template, jsonify
 app = Flask(__name__)
 
@@ -6,17 +6,20 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/toggle/<ionumber>/<value>')
-def toggle(ionumber, value):
+@app.route('/toggle/<channel>/<value>')
+def toggle(channel, value):
     
     if not load_gpio:
         return jsonify({'code': 0})
+
+    if not is_setup(channel):
+        return jsonify({ 'code': -1 })
         
-    print(ionumber, value)  
+    print(channel, value)  
     if int(value) == 1:
-        on(ionumber)
+        on(channel)
     else:
-        off(ionumber)
+        off(channel)
 
     return jsonify({'code': 0}) 
 

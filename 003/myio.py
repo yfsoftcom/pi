@@ -8,7 +8,7 @@ else:
     load_gpio = True
 
 # channels = [ 4, 5, 6, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ] 
-channels = [ 26 ] 
+channels = [  ] 
 
 def is_setup(channel):
     return int(channel) in channels
@@ -23,7 +23,7 @@ def setup(channels):
         channel = int(x)
         if is_setup(channel):
             continue
-        channel.append(channel)
+        channels.append(channel)
         GPIO.setup(channel, GPIO.OUT)
 
 def init():

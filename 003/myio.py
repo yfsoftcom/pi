@@ -7,14 +7,14 @@ except:
 else:
     load_gpio = True
 
-# channels = [ 4, 5, 6, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ] 
-channels = [  ] 
+# ChannelIOs = [ 4, 5, 6, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ] 
+ChannelIOs = [  ] 
 
 def is_setup(channel):
-    return int(channel) in channels
+    return int(channel) in ChannelIOs
 
 def clean():  
-    del channels[:]
+    del ChannelIOs[:]
     GPIO.cleanup()
 
 def setup(channels):
@@ -23,13 +23,13 @@ def setup(channels):
         channel = int(x)
         if is_setup(channel):
             continue
-        channels.append(channel)
+        ChannelIOs.append(channel)
         GPIO.setup(channel, GPIO.OUT)
 
 def init():
     GPIO.setmode(GPIO.BOARD)  
     GPIO.setwarnings(False)
-    # for x in channels:
+    # for x in ChannelIOs:
     #     GPIO.setup(x, GPIO.OUT)
 
 def on(i):  

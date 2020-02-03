@@ -18,6 +18,7 @@ def clean():
     GPIO.cleanup()
 
 def setup(channels):
+    init()
     arr = channels.split(',')
     for x in arr:
         channel = int(x)
@@ -27,7 +28,7 @@ def setup(channels):
         GPIO.setup(channel, GPIO.OUT)
 
 def init():
-    GPIO.setmode(GPIO.BOARD)  
+    GPIO.setmode(GPIO.BOARD)
     GPIO.setwarnings(False)
     # for x in ChannelIOs:
     #     GPIO.setup(x, GPIO.OUT)

@@ -7,19 +7,19 @@ def index():
     return render_template('index.html')
 
 @app.route('/clean')
-def clean():
+def cleanApi():
     print('cleanup')
     clean()
     return jsonify({'code': 0})
 
 @app.route('/setup/<channels>')
-def setup(channels):
+def setupApi(channels):
     print('setup')
     setup(channels)
     return jsonify({'code': 0})
 
 @app.route('/toggle/<channel>/<value>')
-def toggle(channel, value):
+def toggleApi(channel, value):
     
     if not load_gpio:
         return jsonify({'code': 0})

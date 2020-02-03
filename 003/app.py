@@ -1,10 +1,22 @@
-from myio import load_gpio, on, off, is_setup
+from myio import load_gpio, on, off, is_setup, clean, setup
 from flask import Flask, render_template, jsonify
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/clean')
+def clean():
+    print('cleanup')
+    clean()
+    return jsonify({'code': 0})
+
+@app.route('/setup/<channels>')
+def setup(channels):
+    print('setup')
+    setup(channels)
+    return jsonify({'code': 0})
 
 @app.route('/toggle/<channel>/<value>')
 def toggle(channel, value):

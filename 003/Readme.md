@@ -14,6 +14,13 @@ sudo apt-get install -y python3-flask
 ## Code
 
 
+## Apis
+
+- `/clean`
+
+- `/setup/<channels>`
+
+- `/toggle/<channel>/<value>`
 
 ## Run
 

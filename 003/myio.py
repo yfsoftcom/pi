@@ -14,13 +14,23 @@ def is_setup(channel):
     return int(channel) in channels
 
 def clean():  
-  GPIO.cleanup()
+    del channels[:]
+    GPIO.cleanup()
+
+def setup(channels):
+    arr = channels.split(',')
+    for x in arr:
+        channel = int(x)
+        if is_setup(channel):
+            continue
+        channel.append(channel)
+        GPIO.setup(channel, GPIO.OUT)
 
 def init():
     GPIO.setmode(GPIO.BOARD)  
     GPIO.setwarnings(False)
-    for x in channels:
-        GPIO.setup(x, GPIO.OUT)
+    # for x in channels:
+    #     GPIO.setup(x, GPIO.OUT)
 
 def on(i):  
     print('on:', i)

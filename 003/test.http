@@ -1,0 +1,14 @@
+@host = http://192.168.88.205:8000
+@gpio = 18
+
+### setup gpio
+GET {{host}}/setup/{{gpio}} 
+
+### on
+GET {{host}}/toggle/{{gpio}}/1
+
+### off
+GET {{host}}/toggle/{{gpio}}/0
+
+### clean
+GET {{host}}/clean

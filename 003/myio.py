@@ -28,7 +28,7 @@ def setup(channels):
         GPIO.setup(channel, GPIO.OUT)
 
 def init():
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     # for x in ChannelIOs:
     #     GPIO.setup(x, GPIO.OUT)

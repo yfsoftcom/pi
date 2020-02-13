@@ -1,6 +1,12 @@
 @host = http://192.168.88.205:8005
-@gpio1 = 17
-@gpio2 = 27
+@gpio1 = 5
+@gpio2 = 6
+@gpio3 = 20
+
+
+### setup gpio3
+GET {{host}}/setup/{{gpio3}}/o
+
 
 ### setup gpio1
 GET {{host}}/setup/{{gpio1}}/i 
@@ -13,6 +19,12 @@ GET {{host}}/read/{{gpio1}}
 
 ### read2
 GET {{host}}/read/{{gpio2}}
+
+### on
+GET {{host}}/toggle/{{gpio3}}/1
+
+### off
+GET {{host}}/toggle/{{gpio3}}/0
 
 ### clean
 GET {{host}}/clean

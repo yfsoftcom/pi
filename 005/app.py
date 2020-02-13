@@ -21,7 +21,7 @@ def setupApi(channels, io_mode):
 @app.route('/read/<channel>')
 def readApi(channel):
     print('readApi')
-    val = readio(channel)
+    val = readio(int(channel))
     return jsonify({'code': 0, 'value': val})
 
 @app.route('/toggle/<channel>/<value>')

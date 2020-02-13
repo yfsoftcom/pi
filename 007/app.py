@@ -17,7 +17,7 @@ def on_message(client, userdata, msg):
     pin = int(payload['pin'])
     val = payload['val']
     if 'setup' == msg.topic:
-        setup(pin, val)
+        setup(str(pin), val)
     elif 'toggle' == msg.topic:
         if int(val) == 0:
             off(pin)

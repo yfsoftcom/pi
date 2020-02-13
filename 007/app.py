@@ -11,11 +11,12 @@ def on_connect(client, userdata, flags, rc):
  
 # 消息推送回调函数
 def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
+    print("%s %s" % (msg.topic, msg.payload))
     # 获得负载中的pin 和 value
-    payload = json.loads(str(msg.payload))
-    pin = int(payload['pin'])
-    val = payload['val']
+    data = json.loads(msg.payload)
+    pin = data['pin']
+    val = data['val']
+    print( pin, val)
     if 'setup' == msg.topic:
         setup(str(pin), val)
     elif 'toggle' == msg.topic:
@@ -23,6 +24,8 @@ def on_message(client, userdata, msg):
             off(pin)
         else:
             on(pin)
+
+
 if __name__ == '__main__':
     client = mqtt.Client()
     client.username_pw_set('admin', password='123123123')
@@ -35,4 +38,5 @@ if __name__ == '__main__':
         client.loop_forever()
     except KeyboardInterrupt:
         client.disconnect()
-        clean()
+        if load_gpio:
+            clean()

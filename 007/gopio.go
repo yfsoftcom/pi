@@ -52,10 +52,15 @@ func low(pinCode uint8) {
 	pin.Low()
 }
 
-func read(pinCode uint8) (interface{}){
+func read(pinCode uint8, isPullUp bool) (interface{}){
 	open()
 	pin := rpio.Pin(pinCode)
 	pin.Input()
+	if isPullUp {
+		pin.PullUp()
+	}else{
+		pin.PullDown()
+	}
 	res := pin.Read()
 	return res
 }
@@ -102,9 +107,10 @@ func TurnOffHandler(w http.ResponseWriter, r *http.Request) {
 func ReadHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	pin := vars["pin"]
-	state := read(convert(pin))
+	isPulldown := vars["pulldown"]
+	state := read(convert(pin), isPulldown == "up")
     w.WriteHeader(http.StatusOK)
-    fmt.Fprintf(w, "%s",  state)
+    fmt.Fprintf(w, "%d", state)
 }
 
 func main() {
@@ -115,7 +121,7 @@ func main() {
 	r.HandleFunc("/toggle/{pin}", ToggleHandler)
 	r.HandleFunc("/on/{pin}", TurnOnHandler)
 	r.HandleFunc("/off/{pin}", TurnOffHandler)
-	r.HandleFunc("/read/{pin}", ReadHandler)
+	r.HandleFunc("/read/{pin}/{pulldown}", ReadHandler)
 
 	srv := &http.Server{
 		Handler: r,

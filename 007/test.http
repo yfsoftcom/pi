@@ -2,7 +2,7 @@
 @gpio1 = 5
 
 ### read1
-GET {{host}}/read/{{gpio1}}
+GET {{host}}/read/{{gpio1}}/up
 
 ### toggle
 GET {{host}}/toggle/{{gpio1}}

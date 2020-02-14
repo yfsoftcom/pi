@@ -1,0 +1,17 @@
+@host = http://192.168.88.205:8007
+@gpio1 = 5
+
+### read1
+GET {{host}}/read/{{gpio1}}
+
+### toggle
+GET {{host}}/toggle/{{gpio1}}
+
+### off
+GET {{host}}/off/{{gpio1}}
+
+### on
+GET {{host}}/on/{{gpio1}}
+
+### clean
+GET {{host}}/clean

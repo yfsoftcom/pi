@@ -8,6 +8,7 @@ build:
 transfer:
 	scp startup pi@192.168.88.205:/home/pi/
 	scp getip.sh pi@192.168.88.205:/home/pi/
+	scp call.py pi@192.168.88.205:/home/pi/
 run:
 	ssh -t pi@192.168.88.205 "./startup"
 
